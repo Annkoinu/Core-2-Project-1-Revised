@@ -1,0 +1,187 @@
+@font-face {
+    font-family: 'GT Alpina';
+    src: url('GT-Alpina/GT-Alpina-Extended-Regular-Trial.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT Alpina Thin';
+    src: url('GT-Alpina/GT-Alpina-Fine-Extended-Thin-Trial.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT Alpina Light';
+    src: url('GT-Alpina/GT-Alpina-Fine-Extended-Light-Trial.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT Canon';
+    src: url('GT-Canon/GT-Canon-L-Standard-Light-Trial.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --bg:       #fdfffa;
+    --ink:      rgb(56, 20, 2);
+    --ink-mid:  rgba(56, 20, 2, 0.55);
+    --ink-dim:  rgba(56, 20, 2, 0.28);
+    --rule:     rgba(56, 20, 2, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    background-color: var(--bg);
+    color: var(--ink);
+    margin: 0;
+    min-height: 100vh;
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(14px, 2.2vh, 22px) clamp(16px, 2.5vw, 28px);
+}
+
+.topbar-title {
+    font-family: "GT Alpina Light";
+    font-size: clamp(10px, 1.05vw, 12px);
+    color: var(--ink-dim);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    pointer-events: none;
+    user-select: none;
+}
+
+.topbar-nav {
+    display: flex;
+    gap: 8px;
+}
+
+.topbar-nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border: 1px solid rgba(49, 16, 4, 0.18);
+    border-radius: 999px;
+    background: rgba(253, 255, 250, 0.88);
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.52;
+    font-family: "GT Alpina";
+    font-size: clamp(10px, 1.1vw, 13px);
+    transition: opacity 0.2s, border-color 0.2s;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    white-space: nowrap;
+}
+
+.topbar-nav a:hover {
+    opacity: 1;
+    border-color: rgba(49, 16, 4, 0.42);
+}
+
+.wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: clamp(80px, 14vh, 120px);
+    padding-bottom: 80px;
+}
+
+.card {
+    position: relative;
+    width: min(820px, 88vw);
+    box-shadow: 0 4px 32px rgba(56, 20, 2, 0.06);
+}
+
+.card img.photo {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card img.signature {
+    position: absolute;
+    bottom: 8%;
+    right: 6%;
+    width: clamp(100px, 16%, 180px);
+    opacity: 0.18;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+.name {
+    width: min(820px, 88vw);
+    margin-top: 1%;
+    font-family: "GT Alpina Light";
+    color: var(--ink);
+    font-size: clamp(44px, 8.5vw, 118px);
+    line-height: 1.2;
+    pointer-events: none;
+}
+
+.rule {
+    width: min(820px, 88vw);
+    height: 1px;
+    background: var(--rule);
+    margin-top: 4%;
+}
+
+.text {
+    width: min(820px, 88vw);
+    padding-top: 3.5%;
+    padding-left: 31%;
+}
+
+p {
+    font-family: 'GT Alpina Thin';
+    font-size: clamp(13px, 1.6vw, 17px);
+    line-height: 1.65;
+    color: var(--ink-mid);
+    margin-top: 1.4em;
+    margin-bottom: 0;
+}
+
+p b, p strong {
+    font-family: 'GT Alpina';
+    font-weight: normal;
+    color: var(--ink);
+}
+
+em {
+    font-style: italic;
+    color: var(--ink);
+    opacity: 0.75;
+}
+
+@media (max-width: 720px) {
+    .text {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .topbar-title { display: none; }
+
+    .card img.signature {
+        right: 4%;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar-nav { gap: 5px; }
+    .topbar-nav a { padding: 7px 11px; font-size: 11px; }
+}

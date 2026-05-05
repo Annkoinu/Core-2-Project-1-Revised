@@ -1,0 +1,267 @@
+@font-face {
+    font-family: 'GT Alpina';
+    src: url('GT-Alpina/GT-Alpina-Extended-Regular-Trial.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT Alpina Light';
+    src: url('GT-Alpina/GT-Alpina-Fine-Extended-Thin-Trial.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT Canon';
+    src: url('GT-Canon/GT-Canon-L-Standard-Light-Trial.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: #fdfffa;
+    font-family: 'GT Canon';
+    height: 100%;
+    margin: 0;
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(12px, 2.2vh, 22px) clamp(14px, 2.5vw, 28px);
+}
+
+.topbar-title {
+    font-family: "GT Alpina Light";
+    font-size: clamp(9px, 1.05vw, 12px);
+    color: rgba(56, 20, 2, 0.50);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    pointer-events: none;
+    user-select: none;
+    max-width: 38vw;
+    line-height: 1.3;
+}
+
+.topbar-nav {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.topbar-nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    border: 1px solid rgba(49, 16, 4, 0.18);
+    border-radius: 999px;
+    background: rgba(253, 255, 250, 0.88);
+    color: rgb(56, 20, 2);
+    text-decoration: none;
+    opacity: 0.52;
+    font-family: "GT Alpina";
+    font-size: clamp(9px, 1.1vw, 13px);
+    transition: opacity 0.2s, border-color 0.2s;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    white-space: nowrap;
+}
+
+.topbar-nav a:hover {
+    opacity: 1;
+    border-color: rgba(49, 16, 4, 0.42);
+}
+
+.scrolling { height: 1000vh; }
+
+.circles {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+
+#rings {
+    width: min(90vmin, 1120px);
+    transform-origin: 50% 50%;
+}
+
+.ring {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.05);
+    stroke-width: 1;
+}
+
+.text-ring1 { dominant-baseline: middle; fill: rgba(49, 16, 4, 0.05); }
+.text-ring2 { dominant-baseline: middle; fill: rgba(49, 16, 4, 0.10); }
+.text-ring3 { dominant-baseline: middle; fill: rgba(49, 16, 4, 0.17); }
+.text-ring4 { dominant-baseline: middle; fill: rgba(49, 16, 4, 0.32); }
+.text-ring5 { dominant-baseline: middle; fill: rgb(56, 20, 2); }
+.text-ring6 { dominant-baseline: middle; fill: rgba(49, 16, 4, 0.26); }
+.text-ring7 { dominant-baseline: middle; fill: rgba(49, 16, 4, 0.08); }
+.text-ring8 { dominant-baseline: middle; fill: rgba(49, 16, 4, 0.00); }
+
+.scroll-hint {
+    position: fixed;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(49, 16, 4, 0.40);
+    font-family: 'GT Alpina Light';
+    font-size: clamp(12px, 1.2vw, 13px);
+    transition: opacity 0.6s ease;
+    text-align: center;
+}
+
+.scroll-hint.hidden { opacity: 0; }
+
+.scroll-hint .arrow {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.15em;
+    animation: moving 1.2s ease-in-out infinite;
+}
+
+.scroll-hint .cw-note {
+    font-size: clamp(9px, 0.9vw, 11px);
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    opacity: 0.8;
+}
+
+@keyframes moving {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(5px); }
+}
+
+.circ-slider {
+    position: fixed;
+    bottom: clamp(18px, 2.8vw, 32px);
+    right: clamp(18px, 2.8vw, 32px);
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.40;
+    transition: opacity 0.25s;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: grab;
+}
+
+.circ-slider:hover  { opacity: 0.85; }
+.circ-slider.active { opacity: 1; cursor: grabbing; }
+
+.slider-label {
+    font-family: "GT Alpina Light";
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(56, 20, 2, 0.60);
+    pointer-events: none;
+}
+
+.progress-bar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 2px;
+    height: 0%;
+    background: rgb(56, 20, 2);
+    opacity: 0.22;
+    z-index: 40;
+    transition: height 0.08s linear;
+}
+
+.fire {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    visibility: hidden;
+}
+.fire.up { visibility: visible; }
+.fire img {
+    width: 100vw;
+    height: auto;
+    transform: translateY(110vh);
+}
+
+.black-out {
+    position: fixed;
+    inset: 0;
+    background: black;
+    z-index: 60;
+    pointer-events: none;
+    transform: translateY(100%);
+}
+
+.intro {
+    position: fixed;
+    inset: 0;
+    background: #1C1C1C;
+    z-index: 9999;
+    pointer-events: none;
+    display: grid;
+    place-items: center;
+    opacity: 1;
+}
+.intro.play {
+    animation: fadeout 900ms ease forwards;
+    animation-delay: 2500ms;
+}
+.title {
+    font-family: "GT Alpina";
+    color: white;
+    text-align: center;
+    font-size: clamp(56px, 8vw, 120px);
+    line-height: 0.95;
+    padding: 0 6vw;
+    margin: 0;
+    animation: titledisappear 1ms linear forwards;
+    animation-delay: 4500ms;
+}
+@keyframes fadeout        { from { opacity: 1; } to { opacity: 0; } }
+@keyframes titledisappear { to   { display: none; } }
+
+@media (max-width: 720px) {
+    .scroll-hint {
+        position: absolute;
+        right: auto;
+        top: auto;
+        left: 50%;
+        bottom: 10vh;
+        transform: translateX(-50%);
+        font-size: clamp(12px, 3.2vw, 13px);
+    }
+    .fire img {
+        width: 130vw;
+        transform-origin: center bottom;
+    }
+    .circ-slider {
+        bottom: 14px;
+        right: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar-nav { gap: 4px; }
+    .topbar-nav a { padding: 6px 10px; font-size: 10px; }
+    .topbar-title { font-size: 9px; max-width: 36vw; }
+}

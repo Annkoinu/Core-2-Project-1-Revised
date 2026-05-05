@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+    <title>The Circular Ruins</title>
+</head>
+
+<body>
+
+
+    <div class="intro play" id="intro">
+        <div class="title">The Circular Ruins</div>
+    </div>
+
+    <header class="topbar">
+        <span class="topbar-title">The Circular Ruins</span>
+        <nav class="topbar-nav">
+            <a href="jorge_luis_borges.html">Jorge Luis Borges</a>
+            <a href="linear.html">Read linearly</a>
+        </nav>
+    </header>
+
+    <div class="scrolling">
+        <div class="circles">
+
+
+            <div class="scroll-hint" id="scrollhint">
+                <span class="arrow">↓</span>
+                <span class="hint-text">Keep scrolling</span>
+                <span class="cw-note">read clockwise ↻</span>
+            </div>
+
+            <svg id="rings" viewBox="-380 -380 760 760">
+                <defs>
+                    <path id="p1" d="M 50,0  a 50,50  0 1,1 -100,0 a 50,50  0 1,1 100,0" />
+                    <path id="p2" d="M 95,0  a 95,95  0 1,1 -190,0 a 95,95  0 1,1 190,0" />
+                    <path id="p3" d="M 140,0 a 140,140 0 1,1 -280,0 a 140,140 0 1,1 280,0" />
+                    <path id="p4" d="M 185,0 a 185,185 0 1,1 -370,0 a 185,185 0 1,1 370,0" />
+                    <path id="p5" d="M 230,0 a 230,230 0 1,1 -460,0 a 230,230 0 1,1 460,0" />
+                    <path id="p6" d="M 275,0 a 275,275 0 1,1 -550,0 a 275,275 0 1,1 550,0" />
+                    <path id="p7" d="M 320,0 a 320,320 0 1,1 -640,0 a 320,320 0 1,1 640,0" />
+                    <path id="p8" d="M 365,0 a 365,365 0 1,1 -730,0 a 365,365 0 1,1 730,0" />
+                </defs>
+
+                <circle class="ring" r="50"></circle>
+                <circle class="ring" r="95"></circle>
+                <circle class="ring" r="140"></circle>
+                <circle class="ring" r="185"></circle>
+                <circle class="ring" r="230"></circle>
+                <circle class="ring" r="275"></circle>
+                <circle class="ring" r="320"></circle>
+                <circle class="ring" r="365"></circle>
+
+                <g id="textrings">
+                    <text class="text-ring1" font-size="6">
+                        <textPath id="t1" href="#p1" startOffset="0%"></textPath>
+                    </text>
+                    <text class="text-ring2" font-size="8">
+                        <textPath id="t2" href="#p2" startOffset="35%"></textPath>
+                    </text>
+                    <text class="text-ring3" font-size="10">
+                        <textPath id="t3" href="#p3" startOffset="15%"></textPath>
+                    </text>
+                    <text class="text-ring4" font-size="13">
+                        <textPath id="t4" href="#p4" startOffset="45%"></textPath>
+                    </text>
+                    <text class="text-ring5" font-size="22">
+                        <textPath id="t5" href="#p5" startOffset="56.5%"></textPath>
+                    </text>
+                    <text class="text-ring6" font-size="11">
+                        <textPath id="t6" href="#p6" startOffset="76%"></textPath>
+                    </text>
+                    <text class="text-ring7" font-size="9">
+                        <textPath id="t7" href="#p7" startOffset="22.5%"></textPath>
+                    </text>
+                    <text class="text-ring8" font-size="0">
+                        <textPath id="t8" href="#p8" startOffset="0%"></textPath>
+                    </text>
+                </g>
+            </svg>
+
+        </div>
+    </div>
+
+
+    <div class="progress-bar" id="progressbar"></div>
+
+
+    <div class="fire" id="fire">
+        <img id="firepng" src="fire.png" alt="fire" />
+    </div>
+
+
+    <div class="black-out" id="blackout"></div>
+
+
+    <div class="circ-slider" id="circSlider" title="Drag to seek through the story">
+        <svg id="sliderSvg" viewBox="-56 -56 112 112" xmlns="http://www.w3.org/2000/svg">
+
+            <circle r="52" fill="none" stroke="transparent" stroke-width="20" />
+
+            <circle r="42" fill="none" stroke="rgba(56,20,2,0.13)" stroke-width="1.5" />
+
+            <circle id="sliderArc" r="42" fill="none" stroke="rgb(56,20,2)" stroke-width="1.5" stroke-dasharray="263.89"
+                stroke-dashoffset="263.89" stroke-linecap="round" transform="rotate(-90)" />
+
+            <circle id="sliderHandle" r="7" cx="0" cy="-42" fill="rgb(56,20,2)" />
+        </svg>
+        <span class="slider-label">or drag to read</span>
+    </div>
+
+    <script src="javascript.js"></script>
+
+</body>
+
+</html>
